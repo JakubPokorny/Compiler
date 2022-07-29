@@ -1,0 +1,35 @@
+program = "BEGIN" block "END" ";";
+
+block = {variable_declaration {"," identifier } ";"} {statement};
+
+statement = "if" "(" condition ")" "{" block "}" ["else" "{" block "}"]
+	| "while" "(" condition ")" "{" block "}"
+	| "for" "(" set_variable";" condition ";" set_variable")" "{" block "}"
+	| set_variable ";"
+	| "function" identifier "(" [variable_declaration { "," variable_declaration}] ")" 
+		"{" block "return" expression ";" "}"
+	| call_function ";";
+
+variable_declaration = /[a-z]+/ identifier;
+
+set_variable = identifier "=" expression;
+
+call_function = "call" identifier "(" [expression { "," expression }] ")";
+
+condition = expression [("==" | "!=" | "<=" | ">=" | "<" | ">") expression] ;
+
+expression = (["+" | "-"] term {("+" | "-") term } | string);
+
+term = factor {("*" | "/") factor};
+
+factor = call_function | identifier | number | "(" expression ")";
+ 
+identifier = /[a-zA-Z_][a-zA-Z0-9_]*/;
+
+number = double | integer;
+
+double = /[0-9]+[.[0-9]+]*/;
+
+integer = /[0-9]+/;
+
+string = /\"(.*?)\"/;

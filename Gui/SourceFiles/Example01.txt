@@ -1,0 +1,22 @@
+BEGIN
+double a, b; 
+int c;
+
+a = 5;
+b = 4;
+c = 2;
+
+if (a > (b+c)) {
+	if (b > (c+a)) {
+		if (c > (a+b)) {
+			call vypis("trojuhelnik lze sestrojit");
+		} else {
+			call vypis("trojuhelnik nelze sestrojit");
+		}
+	} else {
+	call vypis("trojuhelnik lze sestrojit");	
+	}
+} else {
+call vypis("trojuhelnik lze sestrojit");
+}
+END;

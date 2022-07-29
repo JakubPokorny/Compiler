@@ -1,0 +1,21 @@
+BEGIN
+string stanice;
+double nastupiste, Harry;
+stanice = "King's Cross";
+nastupiste = 9.75;
+Harry = 2; 
+
+function secti(double a, double b){
+	return a + b;
+}
+
+function goHarryGo(double aktualni_nastupiste, double postup,  string cil){
+	aktualni_nastupiste = call secti(aktualni_nastupiste, postup);
+	return aktualni_nastupiste;
+}
+
+while (Harry != nastupiste) {
+	Harry = call goHarryGo(Harry, 0.25, "Bradavice");
+	call vypis(Harry);
+}
+END;

@@ -1,0 +1,21 @@
+BEGIN
+int i;
+string Adam, Eva;
+
+for ( i = 0; i < (10/2); i = i+1) { 
+	call vypis(i);
+}
+
+Adam = "Adam";
+Eva = "Eva";
+
+if( Adam < Eva){
+	if (Adam < "Josefina"){
+     		call vypis(Adam);
+	} else {
+		call vypis("Josefina");
+	}
+}else{
+	call vypis(Eva);
+}
+END;
